@@ -9,10 +9,12 @@ const Card = (data)=>{
         <span className="absolute bottom-0 left-0 bg-black/90 rounded-full text-white text-xs m-2 px-3 py-0.5 capitalize">{data.data.category.name}</span>
         <img className="w-full h-full object-cover rounded-lg" src={data.data.images[2]} alt={data.data.title} />
         <div 
-          className="absolute top-0 right-0 flex justify-center items-center bg-white rounded-full w-6 h-6 m-2 P-1"
+          className="absolute top-0 right-0 flex justify-center items-center bg-white rounded-full w-6 h-6 m-2 hover:text-green-700 "
           onClick={() => context.setCount(context.count + 1)}>
-          +
-        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+        </svg>
+        </div> 
       </figure>
       <p className="flex justify-between items-center gap-4">
         <span className="text-sm font-light truncate">{data.data.title}</span>
