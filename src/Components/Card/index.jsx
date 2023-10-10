@@ -2,7 +2,6 @@ import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context"
 
 const Card = (data)=>{
-  console.log(data)
   const context = useContext(ShoppingCartContext)
   return (
     <div className="bg-white shadow-lg cursor-pointer w-56 h-60 rounded-lg px-2 pt-2 transition-all duration-200 hover:-translate-y-2">
