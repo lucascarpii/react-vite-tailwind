@@ -2,12 +2,13 @@ import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context"
 
 const Card = (data)=>{
+  console.log(data)
   const context = useContext(ShoppingCartContext)
   return (
     <div className="bg-white shadow-lg cursor-pointer w-56 h-60 rounded-lg px-2 pt-2 transition-all duration-200 hover:-translate-y-2">
       <figure className="relative mb-2 w-full h-4/5">
-        <span className="absolute bottom-0 left-0 bg-black/90 rounded-full text-white text-xs m-2 px-3 py-0.5 capitalize">{data.data.category}</span>
-        <img className="w-full h-full object-cover rounded-lg" src={data.data.image} alt={data.data.title} />
+        <span className="absolute bottom-0 left-0 bg-black/90 rounded-full text-white text-xs m-2 px-3 py-0.5 capitalize">{data.data.category.name}</span>
+        <img className="w-full h-full object-cover rounded-lg" src={data.data.images[2]} alt={data.data.title} />
         <div 
           className="absolute top-0 right-0 flex justify-center items-center bg-white rounded-full w-6 h-6 m-2 P-1"
           onClick={() => context.setCount(context.count + 1)}>
