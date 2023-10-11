@@ -3,7 +3,6 @@ import { ShoppingCartContext } from "../../Context"
 
 const ProductDetail = () => {
   const context = useContext(ShoppingCartContext)
-  console.log('product to show', context.productToShow)
 
   return (
     <aside className={`${context.isProductDetailOpen ? 'flex' : 'hidden'} w-[360px] shadow-lg border flex flex-col fixed rounded-lg bg-white right-0 h-[calc(100vh_-_68px)] top-[68px]`}>
@@ -18,7 +17,7 @@ const ProductDetail = () => {
       <figure className="px-6 mt-6">
         <img 
           className="w-full h-full rounded-lg" 
-          src={context.productToShow.images[0]} 
+          src={context.productToShow.images?.[0]} 
           alt={context.productToShow.title} />
       </figure>
       <p className="flex flex-col p-6">
