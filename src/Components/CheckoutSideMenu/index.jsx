@@ -15,7 +15,7 @@ const CheckoutSideMenu = () => {
           </svg>
         </button>
       </div>
-      <div className="px-4 py-4">
+      <div className="px-4 py-4 overflow-y-auto">
       {
         context.cartProducts.map(product => (  
         <OrderCard 
