@@ -4,7 +4,13 @@ import { OrderCard } from "../OrderCard"
 
 const CheckoutSideMenu = () => {
   const context = useContext(ShoppingCartContext)
-  console.log(context.cartProducts)
+
+  const handleDelete = (id) => {
+    const filteredProducts = context.cartProducts.filter(product => product.id != id)
+    context.setCartProducts(filteredProducts)
+    context.setCount(context.count - 1)
+  }
+
   return (
     <aside className={`${context.isCheckoutSideMenuOpen ? 'flex' : 'hidden'} w-[360px] shadow-lg border flex flex-col fixed rounded-lg bg-white right-0 h-[calc(100vh_-_68px)] top-[68px]`}>
       <div className="flex justify-between items-center px-4 py-4 border-b">
@@ -20,9 +26,12 @@ const CheckoutSideMenu = () => {
         context.cartProducts.map(product => (  
         <OrderCard 
           key={product.id}
+          id={product.id}
           title={product.title}
           imageUrl={product.images?.[0]}
-          price={product.price} />
+          price={product.price}
+          handleDelete={handleDelete}
+          />
           ))
       }
       </div>
