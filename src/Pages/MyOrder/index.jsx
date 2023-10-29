@@ -18,7 +18,7 @@ function MyOrder() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
         </Link>
-        <h1>My Orders</h1>
+        <h1 className="font-medium text-xl">My Orders</h1>
       </div>
       <div className='flex flex-col w-80'>
         {
