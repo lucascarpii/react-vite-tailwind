@@ -27,22 +27,33 @@ export const ShoppingCartProvider = ({ children }) => {
 
   // Get Products
   const [items, setItems] = useState(null)
-  const [filteredItems, setFilteredItems] = useState(null)
-
-  // Get products by title
-  const [searchByTitle, setSearchByTitle] = useState(null)
-
-  // Get products by category
-  const [searchByCategory, setSearchByCategory] = useState(null)
-
+  const [categories, setCategories] = useState(null)
+  
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products')
-      .then(response => response.json())
-      .then(data => {
-        const first100Items = data.slice(0, 100);
-        setItems(first100Items);
-      })
+    .then(response => response.json())
+    .then(data => {
+      const first100Items = data.slice(0, 100);
+      setItems(first100Items);
+    })
+
+    fetch('https://api.escuelajs.co/api/v1/categories')
+    .then(response => response.json())
+    .then(data => {
+      const first100categories = data.slice(0, 100);
+      setCategories(first100categories);
+    })
   }, [])
+  
+  // Get products by title
+  const [searchByTitle, setSearchByTitle] = useState(null)
+  
+  // Get products by category
+  const [searchByCategory, setSearchByCategory] = useState(null)
+  
+  // Filter items
+  const [filteredItems, setFilteredItems] = useState(null)
+  console.log(filteredItems)
 
   const filteredItemsByTitle = (items, searchByTitle) => {
     return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
@@ -76,7 +87,7 @@ export const ShoppingCartProvider = ({ children }) => {
     if (!searchByTitle && searchByCategory) setFilteredItems(filterBy('BY_CATEGORY', items, searchByTitle, searchByCategory))
     if (!searchByTitle && !searchByCategory) setFilteredItems(filterBy(null, items, searchByTitle, searchByCategory))
   }, [items, searchByTitle, searchByCategory])
-  
+
   return (
     <ShoppingCartContext.Provider value={{
       count,
@@ -95,6 +106,7 @@ export const ShoppingCartProvider = ({ children }) => {
       closeCheckoutSideMenu,
       items,
       setItems,
+      categories,
       searchByTitle,
       setSearchByTitle,
       filteredItems,

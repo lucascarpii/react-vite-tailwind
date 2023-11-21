@@ -4,7 +4,7 @@ import { ShoppingCartContext } from "../../Context"
 
 const Navbar = () => {
   const context = useContext(ShoppingCartContext)
-  const activeStyle = 'underline underline-offset-4'
+  const activeStyle = 'underline underline-offset-4 capitalize'
   return(
     <nav className="flex bg-white justify-between items-center fixed top-0 z-10 w-full py-5 px-8 text-base font-normal font-pop">
       <ul className="flex items-center gap-3">
@@ -21,46 +21,18 @@ const Navbar = () => {
             All
           </NavLink>
         </li>
-        <li>
-          <NavLink 
-            to={'/clothes'}
-            onClick={() => context.setSearchByCategory('clothes')}
-            className={({isActive})=> isActive ? activeStyle : undefined}>
-            Clothes
-          </NavLink>
-        </li>
-        <li>
-          <NavLink 
-            to={'/electronic'}
-            onClick={() => context.setSearchByCategory('electronics')}
-            className={({isActive})=> isActive ? activeStyle : undefined}>
-            Electronic
-          </NavLink>
-        </li>
-        <li>
-          <NavLink 
-            to={'/furnitures'}
-            onClick={() => context.setSearchByCategory('furnitures')}
-            className={({isActive})=> isActive ? activeStyle : undefined}>
-            Furnitures
-          </NavLink>
-        </li>
-        <li>
-          <NavLink 
-            to={'/toys'}
-            onClick={() => context.setSearchByCategory('toys')}
-            className={({isActive})=> isActive ? activeStyle : undefined}>
-            Toys
-          </NavLink>
-        </li>
-        <li>
-          <NavLink 
-            to={'/others'}
-            onClick={() => context.setSearchByCategory('others')}
-            className={({isActive})=> isActive ? activeStyle : undefined}>
-            Others
-          </NavLink>
-        </li>
+        {
+          context.categories?.map(category => (
+          <li key={category.id}>
+            <NavLink 
+              to={`/category/${category.name.toLowerCase()}`}
+              onClick={() => context.setSearchByCategory(category.name)}
+              className={({isActive})=> isActive ? activeStyle : 'capitalize'}>
+              {category.name}
+            </NavLink>
+          </li>
+          ))
+        }
       </ul>
       <ul className="flex items-center gap-3">
         <li className="text-black/60">

@@ -12,22 +12,14 @@ function Home() {
   }
 
   const renderView = () => {
-    if(searchByTitle?.length > 0){
-      if(filteredItems?.length > 0){
-        return(
-          filteredItems?.map(item => (
-            <Card key={item.id} data={item} />
-          ))
-        )
-      } else {
-        return(<NotFoundItems />)
-      }
-    } else {
+    if(filteredItems?.length > 0){
       return(
-        items?.map(item => (
+        filteredItems?.map(item => (
           <Card key={item.id} data={item} />
         ))
       )
+    } else {
+      return(<NotFoundItems />)
     }
   };
 
