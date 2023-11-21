@@ -53,8 +53,7 @@ export const ShoppingCartProvider = ({ children }) => {
   
   // Filter items
   const [filteredItems, setFilteredItems] = useState(null)
-  console.log(filteredItems)
-
+  
   const filteredItemsByTitle = (items, searchByTitle) => {
     return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
   }

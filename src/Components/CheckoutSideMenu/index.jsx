@@ -10,7 +10,6 @@ const CheckoutSideMenu = () => {
   const handleDelete = (id) => {
     const filteredProducts = context.cartProducts.filter(product => product.id != id)
     context.setCartProducts(filteredProducts)
-    context.setCount(context.count - 1)
   }
   
   const handleCheckout = () =>{
@@ -23,6 +22,7 @@ const CheckoutSideMenu = () => {
 
     context.setOrder([...context.order, orderToAdd])
     context.setCartProducts([])
+    context.setSearchByTitle(null)
   }
 
   return (
