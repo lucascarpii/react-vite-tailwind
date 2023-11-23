@@ -40,8 +40,8 @@ export const ShoppingCartProvider = ({ children }) => {
     fetch('https://api.escuelajs.co/api/v1/categories')
     .then(response => response.json())
     .then(data => {
-      const first100categories = data.slice(0, 100);
-      setCategories(first100categories);
+      const limitedCategories = data.slice(0, 6);
+      setCategories(limitedCategories);
     })
   }, [])
   
