@@ -1,8 +1,19 @@
-# React + Vite
+# Ecommerce con React, Vite y TailwindCss
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Acerca del Proyecto
 
-Currently, two official plugins are available:
+Este proyecto es una aplicación de Ecommerce creada con **React**, **Vite** y **TailwindCss**. Fue desarrollado durante el curso práctico de React en Platzi.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Características
+
+- **React**: Una biblioteca de JavaScript para construir interfaces de usuario.
+- **Vite**: Un entorno de desarrollo que sirve a tus archivos a través de ES Module Imports durante el desarrollo.
+- **TailwindCss**: Un marco de CSS de utilidad para la creación rápida de diseños personalizados.
+
+## Despliegue
+
+La aplicación está desplegada y accesible en línea. Puedes verla en acción aquí: https://astounding-gaufre-2ee7c5.netlify.app/
+
+## Cómo Contribuir
+
+Las contribuciones son siempre bienvenidas. Si tienes alguna sugerencia o mejora que te gustaría ver en el proyecto, no dudes en abrir un issue o hacer un pull request.
